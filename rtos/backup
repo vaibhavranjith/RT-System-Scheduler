@@ -1,0 +1,72 @@
+float t=0;
+	FILE* fp=fopen("rms_schedule.txt","rw");
+	rms_construct* prio_q;
+	prio_q=(rms_construct*)malloc(READY_QUEUE_SIZE*sizeof(rms_construct));
+	TQueue* rq=(TQueue*)createQueue(READY_QUEUE_SIZE);
+	int size_prio=0;
+	int system_busy_flag=0;
+	rms_construct temp;
+	float timer=0;
+	while(t<=RUNNING_TIME){
+		check_for_job_release(tq,rq,t);
+		task read_p;
+		
+		if(rq->size>0)
+			for(int i=0;i<rq->size;i++){			//size not being incremented in this loop
+				read_p=dequeue(rq);
+				int j=size_prio-1;	
+				while(read_p.period < prio_q[j].T.release_time && j>0){ 	//creating the priority queue
+					prio_q[j+1]=prio_q[j];
+					j--;
+				}
+				prio_q[j].T=read_p;
+				prio_q[j].next_exec=read_p.release_time;
+				size_prio++;
+			}
+			
+		temp=prio_q[0];
+		if((t>=temp.next_exec) && timer==0){
+			//remove the highsest priority job and execute
+			rms_construct temp;
+			for(int i=0;i<size_prio;i++){
+				prio_q[i]=prio_q[i+1];
+			}
+			prio_q[size_prio-1]=temp;
+			prio_q[size_prio-1].next_exec+=(prio_q[size_prio-1].T.period);
+			fprintf(fp,"Task released from %f--->%f",t,(t+temp.T.exec));
+			timer=temp.T.exec;
+			
+		}
+		else
+			timer=timer-1;
+						
+		t=t+TIME_GRAN;		
+			
+	}
+	
+int check_for_job_release(task* ptasks,int no_of_ptasks,float t,int size,job* job_q){	
+	for(int i=0;i<no_of_ptasks;i++){
+		float dif=ptasks[i].release_time-t;
+		if(dif<=TIME_GRAN){
+			job_q[size].T=ptasks[i];
+			job_q[size].next_exec=ptasks[i].release_time;
+			size++;
+
+			ptasks[i].release_time=10000;		//since the job  of this task has been released setting an invalid 												release time
+		}
+		//prioritize inside the array of jobs in
+		job key;
+		int k;
+		for (int j = 1; j < size; j++) { 
+       			key = job_q[j]; 
+       			k = j - 1; 
+       			while (k >= 0 && job_q[k].T.period > key.T.period) { 
+         		 	job_q[k + 1] = job_q[k]; 
+            			k = k - 1; 
+       			 } 
+       			job_q[k + 1] = key; 
+   	 	} 
+	}
+	return size;
+
+}
