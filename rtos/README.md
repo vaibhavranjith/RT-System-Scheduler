@@ -1,9 +1,9 @@
-#RMS Scheduler
+# RMS Scheduler
 
 This is an RMS scheduler that I designed as a part of my project. This simulates an RMS scheduler
 for a given set of Periodic, Aperiodic and Sporadic tasks.
 
-##How to Compile and Run?
+# How to Compile and Run?
 
 To compile just download this directory. Navigate to it and enter make
 
@@ -22,23 +22,23 @@ Initial job release  period  execution-time deadlin Task_ID
 *****************************************************************************************
 ## The Output:
 
-0.000000 3 0.500000 3.000000
-0.000000 4 1.000000 4.000000
-0.000000 6 2.000000 6.000000
-Hyperperiod :: 12
-Job of Task 3 ---->{0.000000  0.500000}
-Job of Task 4 ---->{0.500000  1.400000}
-Job of Task 6 ---->{1.400000  2.999999}
-Job of Task 3 ---->{2.999999  3.499999}
-Job of Task 6 ---->{3.499999  3.999998}
-Job of Task 4 ---->{3.999998  5.999997}
-Job of Task 3 ---->{5.999997  6.499996}
-Job of Task 6 ---->{6.499996  7.999995}
-Job of Task 4 ---->{7.999995  8.899998}
-Job of Task 6 ---->{8.899998  8.999998}
-Job of Task 3 ---->{8.999998  9.500000}
-Job of Task 6 ---->{9.500000  11.900009}
-Job of Task 3 ---->{11.900009 ...
+>0.000000 3 0.500000 3.000000
+>0.000000 4 1.000000 4.000000
+>0.000000 6 2.000000 6.000000
+>Hyperperiod :: 12
+>Job of Task 3 ---->{0.000000  0.500000}
+>Job of Task 4 ---->{0.500000  1.400000}
+>Job of Task 6 ---->{1.400000  2.999999}
+>Job of Task 3 ---->{2.999999  3.499999}
+>Job of Task 6 ---->{3.499999  3.999998}
+>Job of Task 4 ---->{3.999998  5.999997}
+>Job of Task 3 ---->{5.999997  6.499996}
+>Job of Task 6 ---->{6.499996  7.999995}
+>Job of Task 4 ---->{7.999995  8.899998}
+>Job of Task 6 ---->{8.899998  8.999998}
+>Job of Task 3 ---->{8.999998  9.500000}
+>Job of Task 6 ---->{9.500000  11.900009}
+>Job of Task 3 ---->{11.900009 ...
 
 the id is not printed instead the period of the task is printed.
 
