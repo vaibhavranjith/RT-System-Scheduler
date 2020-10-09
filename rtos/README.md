@@ -10,6 +10,8 @@ To compile just download this directory. Navigate to it and enter make
 
 
 *****************************************************************************************
+### Short Note on the code
+
 The sched.h file contains all the functions and structure declarations.
 The struct.c file contains all the functions for priority queue
 The sched.h file contains all the functions for the scheduling
@@ -18,8 +20,8 @@ The main.c is the driver function
 The inputs are read from the file named periodic.txt. It is filled in the order
 
 Initial job release  period  execution-time deadlin Task_ID
+***************************************************************************************
 
-*****************************************************************************************
 ## The Output of the RMS Scheduler:
 
 >0.000000 3 0.500000 3.000000<br />
