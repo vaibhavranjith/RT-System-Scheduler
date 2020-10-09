@@ -1,4 +1,13 @@
-To compile just enter make. The make file will also run the program after compilation
+#RMS Scheduler
+
+This is an RMS scheduler that I designed as a part of my project. This simulates an RMS scheduler
+for a given set of Periodic, Aperiodic and Sporadic tasks.
+
+##How to Compile and Run?
+
+To compile just download this directory. Navigate to it and enter make
+
+
 
 *****************************************************************************************
 The sched.h file contains all the functions and structure declarations.
@@ -11,7 +20,7 @@ The inputs are read from the file named periodic.txt. It is filled in the order
 Initial job release  period  execution-time deadlin Task_ID
 
 *****************************************************************************************
-the output::
+## The Output:
 
 0.000000 3 0.500000 3.000000
 0.000000 4 1.000000 4.000000
@@ -35,8 +44,7 @@ the id is not printed instead the period of the task is printed.
 
 so the line Job of Task 6 ---->{1.400000  2.999999} means "The task with period 6 executed from t=1.4 to t=2.99999.
 
-Thank you
-Vaibhav Ranjith
+
 ..................................................................................................................................................
 update 1
 
